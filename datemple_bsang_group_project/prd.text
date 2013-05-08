@@ -1,0 +1,18 @@
+Project: TB SoundBlaster
+Lead Developer: Derek Temple
+Lead Designer: Biak Sang
+
+Project Objective:
+	TB Soundblaster will use the Tinysong API to allow users to search for music by artist, album, or song.
+	The user will then be able to stream songs, look up lyrics, and view information about the song, album, and artist.
+
+Version 1:
+	- Search by Artist, Album, and/or Song
+	- Audio Streaming (TinySong API)
+	- Display Data for Artist, Album, and Song (TinySong API)
+	- Playlist Creation
+
+Version 2:
+	- Display Album Art (MusicBrainz API)
+	- Lyrics (LyricWiki API)
+	- Music Video Embedding/Linking (YouTube API)
