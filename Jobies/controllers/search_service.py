@@ -10,11 +10,11 @@ class SearchService():
         dbconnector = DBConnector()
         self.cnx = dbconnector.getConnection()
         self.cursor = self.cnx.cursor()
-        print 4
+        # print 4
 
 
     def search(self, searchTerm):
-        print searchTerm
+        # print searchTerm
         sql = ("SELECT Jobs.jobTitle, Jobs.description FROM Jobs WHERE Jobs.jobTitle like '%{}%'").format(searchTerm)
 
         self.cursor.execute(sql)
@@ -25,7 +25,8 @@ class SearchService():
                  'jobTitle': jobTitle,
                  'description': description})
         
-        print json.dumps(allDefs)    
+        # print json.dumps(allDefs)  
+        return allDefs  
 
         self.cursor.close()
         self.cnx.close()
