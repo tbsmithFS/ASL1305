@@ -1,40 +1,66 @@
 #!/usr/bin/python
-# from controllers.search_service import SearchService
-# searchService = SearchService()
+
+import os, sys
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+
+
+# WSGIPythonPath /path/to/Jobies/controllers
 
 import json
 
 # WEB.PY STUFF
 import web
 
+from controllers.search_service import SearchService
+
 urls = (
   '/contact', 'contact',
   '/user', 'user',
+  '/search', 'search',
   '/(.*)', 'home'
 )
 
 app = web.application(urls, globals(), autoreload=False)
 application = app.wsgifunc()
-
 web.config.debug = True
-
 template_path = '/usr/htdocs/jobies/views/'
-
 render = web.template.render('/usr/htdocs/jobies/views/')
+
+allDefs = None;
 
 class home:
   def GET(self, name=None):
+    print 'home point'
     r = PageRenderer()
-    return r.pageRenderer()
+    return r.homePageRenderer()
 
 class PageRenderer:
-  def pageRenderer(self):
+  def homePageRenderer(self):
     header = render.header()
-    home = render.home()
+    home = render.home(allDefs)
     footer = render.footer()
     form = render.index(header, home, footer)
-
+    print 4
     return form
+
+  # def searchPageRenderer(self, searchResults=None):
+  #   print 1
+  #   form = render.home(searchResults)
+  #   r = PageRenderer()
+  #   return r.homePageRenderer()
+  #   print 2
+
+    
+
+class search:
+  def GET(self):
+    searchService = SearchService()
+    allDefs = searchService.search(web.input("searchTerm"))
+    print allDefs
+    # if allDefs is not None:
+    print 3
+    # r = PageRenderer()
+    # return r.searchPageRenderer(allDefs)
 
 
   # def GET(self, name=None):

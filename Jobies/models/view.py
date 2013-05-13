@@ -6,8 +6,8 @@ class View:
     def __init__(self):
         self.base_path = "/usr/htdocs/jobies/views/"
 
-    def print_header(self):
-        print "Content-type: text/html\n\n"
+    # def print_header(self):
+    #     print "Content-type: text/html\n\n"
         
     def get_view(self, file, data = {}, form_data={}, validation_data={}):
         full_path_to_view = self.base_path + str(file) + ".py"

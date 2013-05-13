@@ -1,8 +1,10 @@
+$def with (searchResults)
+
   <div class="hero">
     <div class="inner_wrapper">
      <img src="/assets/images/hero_message.png" alt="Launch your career today!" class="hero_message">
      <div class="searchblock">
-     <form method="post" enctype="multipart/form-data" action="/search_service/search">
+     <form method="get" enctype="multipart/form-data" action="/search">
         <input name="searchTerm" type="text" class="main_search_bar" value="web">
         <a href="/search_service/search">
           <input class="search_button" type="submit"/>
@@ -35,6 +37,6 @@
   </section>
   <div class="inner_wrapper">
     <section class="results_wrapper">
-
+      $searchResults
     </section>
     <div class="clearfix"></div>

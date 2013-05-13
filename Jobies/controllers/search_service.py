@@ -14,7 +14,7 @@ class SearchService():
 
 
     def search(self, searchTerm):
-        # print searchTerm
+        print searchTerm
         sql = ("SELECT Jobs.jobTitle, Jobs.description FROM Jobs WHERE Jobs.jobTitle like '%{}%'").format(searchTerm)
 
         self.cursor.execute(sql)
