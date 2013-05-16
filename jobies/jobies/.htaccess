@@ -1,4 +1,0 @@
-Options +FollowSymLinks
-RewriteEngine On
-RewriteRule ^([a-zA-Z_]+)$ index.py?page=$1
-RewriteRule ^([a-zA-Z_]+)/([a-zA-Z_]+)$ index.py?page=$1&action=$2

@@ -2,11 +2,21 @@
 print "Content-type: text/html\n\n"
 import cgi
 query = cgi.FieldStorage()
-print query
+# print query
 from controllers.search_service import SearchService
 searchService = SearchService()
 
-print 111111
+import json
+
+# WEB.PY STUFF
+import web
+
+urls = (
+  '/', 'home'
+)
+
+
+# print 111111
 
 if 'page' in query and 'action' in query:
   page = query.getvalue('page')
@@ -17,7 +27,7 @@ else:
   action = 'search'
   searchTerm = 'Web Developer'
 
-print 2
+# print 2
 
 if page == 'home':
   from controllers.home import Home
@@ -50,11 +60,17 @@ elif page == 'user':
 
 elif page == 'search_service':
   if action == 'search':
-    searchService.search(query.getvalue("searchTerm"))
+    allDefs = searchService.search(query.getvalue("searchTerm"))
+    # MUST FIND A WAY TO SAY , PRINT THIS ONCE ALLDEFS RETURNED
+    print json.dumps(allDefs)    
+
     print 3
-    print query
+    # print query
 
 else:
   # default if no page specified
   from controllers.home import Home
   Home().get(query)
+
+# def GET(self, allDefs=None):
+#     print json.dumps(allDefs)    
