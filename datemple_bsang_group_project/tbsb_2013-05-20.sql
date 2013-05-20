@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: tbsb
-# Generation Time: 2013-05-20 20:51:11 +0000
+# Generation Time: 2013-05-20 23:47:08 +0000
 # ************************************************************
 
 
@@ -96,8 +96,7 @@ CREATE TABLE `users` (
   `email` varchar(128) NOT NULL DEFAULT '',
   `passHash` char(32) NOT NULL DEFAULT '',
   PRIMARY KEY (`userId`),
-  UNIQUE KEY `username` (`username`),
-  UNIQUE KEY `email` (`email`)
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
